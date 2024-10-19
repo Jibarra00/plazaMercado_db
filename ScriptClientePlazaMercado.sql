@@ -40,3 +40,21 @@ begin
 	delete from tbl_cliente where cli_id = c_id;
 end//
 DELIMITER ;
+
+-- Eliminar un empleado
+DELIMITER //
+create procedure spDeleteEmployee(IN e_id INT)
+begin
+	delete from tbl_empleado where emp_id = e_id;
+end//
+DELIMITER ;
+
+
+-- Selecciona unicamente el id y el nombre de los clientes
+DELIMITER //
+CREATE PROCEDURE spSelectClientsDDL()
+BEGIN
+	select cli_id, cli_nombre
+    from tbl_cliente;
+END//
+DELIMITER ;
