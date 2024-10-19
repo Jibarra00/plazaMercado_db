@@ -40,3 +40,13 @@ begin
 	delete from tbl_cliente where cli_id = c_id;
 end//
 DELIMITER ;
+
+
+-- Selecciona unicamente el id y el nombre de los clientes
+DELIMITER //
+CREATE PROCEDURE spSelectClientsDDL()
+BEGIN
+	select cli_id, cli_nombre
+    from tbl_cliente;
+END//
+DELIMITER ;

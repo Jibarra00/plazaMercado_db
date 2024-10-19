@@ -42,3 +42,13 @@ end//
 DELIMITER ;
 
 
+-- Selecciona unicamente el id y el nombre de los provedores
+DELIMITER //
+CREATE PROCEDURE spSelectEmployeesDDL()
+BEGIN
+	select emp_id, emp_nombre
+    from tbl_empleado;
+END//
+DELIMITER ;
+
+
