@@ -1,3 +1,12 @@
+
+-- Selecciona unicamente el id y el nombre deL rol
+DELIMITER //
+CREATE PROCEDURE spSelectrolDDL()
+BEGIN
+	select rol_id,rol_nombre
+    from tbl_rol;
+END//
+DELIMITER ;
 --insertar rol
 DELIMITER //
 create procedure spInsertRol(IN r_nombre VARCHAR(45),IN r_description VARCHAR(80))
