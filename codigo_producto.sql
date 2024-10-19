@@ -1,3 +1,11 @@
+-- Selecciona unicamente el id y el nombre deL producto
+DELIMITER //
+CREATE PROCEDURE spSelectProductDDL()
+BEGIN
+	select pro_id,concat(pro_codigo,'  ', pro_descripcion)
+    from tbl_producto;
+END//
+DELIMITER ;
 -- crear producto
 DELIMITER //
 create procedure spInsertProduct(IN p_code VARCHAR(45),IN p_description VARCHAR(100),
