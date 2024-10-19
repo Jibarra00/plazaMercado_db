@@ -41,14 +41,6 @@ begin
 end//
 DELIMITER ;
 
--- Eliminar un empleado
-DELIMITER //
-create procedure spDeleteEmployee(IN e_id INT)
-begin
-	delete from tbl_empleado where emp_id = e_id;
-end//
-DELIMITER ;
-
 
 -- Selecciona unicamente el id y el nombre de los clientes
 DELIMITER //
