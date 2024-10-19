@@ -37,3 +37,11 @@ BEGIN
     DELETE FROM tbl_categoria WHERE cat_id = p_cat_id;
 END$$
 DELIMITER ;
+
+-- Selecciona unicamente el id y el nombre de la categoría
+DELIMITER //
+CREATE PROCEDURE spSelectCategoryDDL()
+BEGIN
+     select cat_id, cat_descripcion from tbl_categoria;
+END//
+DELIMITER ; 
