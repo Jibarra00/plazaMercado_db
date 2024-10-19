@@ -1,5 +1,5 @@
 
--- Selecciona unicamente el id y el nombre de los provedores
+-- Selecciona unicamente el id y el nombre deL rol
 DELIMITER //
 CREATE PROCEDURE spSelectrolDDL()
 BEGIN
