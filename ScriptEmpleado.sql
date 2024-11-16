@@ -50,5 +50,3 @@ BEGIN
     from tbl_empleado;
 END//
 DELIMITER ;
-
-

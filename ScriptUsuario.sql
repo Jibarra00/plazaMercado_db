@@ -42,6 +42,3 @@ begin
 		delete from tbl_usuario where usu_id = u_id;
 end //
 DELIMITER ;
-                
-                
-		

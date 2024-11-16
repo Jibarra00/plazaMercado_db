@@ -8,7 +8,7 @@ begin
     values(c_names,c_lastnames,c_mail,c_phone,c_addres);
 end//
 DELIMITER ;
-
+-- xde
 -- Actualizar un Empleado
 DELIMITER //
 create procedure spUpdateClient(IN c_id INT,IN c_names VARCHAR(80),IN c_lastnames VARCHAR(80),

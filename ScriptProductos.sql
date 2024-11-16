@@ -2,34 +2,34 @@
 DELIMITER //
 CREATE PROCEDURE spSelectProductDDL()
 BEGIN
-	select pro_id,concat(pro_codigo,'  ', pro_descripcion)
+	select pro_id,concat(pro_codigo,'  ', pro_descripcion) as codigoDescripcion
     from tbl_producto;
 END//
 DELIMITER ;
 -- crear producto
 DELIMITER //
-create procedure spInsertProduct(IN p_code VARCHAR(45),IN p_description VARCHAR(100),
-IN p_amount INT,IN p_price DECIMAL,IN p_fkprovider INT,IN p_fkcategory INT)
+create procedure spInsertProduct(IN p_codigo VARCHAR(45),IN p_descripcion VARCHAR(100),
+IN p_cantidad INT,IN p_precio DECIMAL,IN p_fkprovider INT,IN p_fkcategory INT)
 begin
 	insert into tbl_producto(pro_codigo,pro_descripcion,pro_cantidad,pro_precio,
     tbl_proveedor_prov_id,tbl_categoria_cat_id) 
-    values(p_code,p_description,p_amount,p_price,p_fkprovider,p_fkcategory);
+    values(p_codigo,p_descripcion,p_cantidad,p_precio,p_fkprovider,p_fkcategory);
 end//
 DELIMITER ;
 
---actualizar producto
+-- actualizar producto
 DELIMITER //
-create procedure spUpdateProduct(IN p_id INT,IN p_code VARCHAR(45),IN p_description VARCHAR(100),
-IN p_amount INT,IN p_price DECIMAL,IN p_fkprovider INT,IN p_fkcategory INT)
+create procedure spUpdateProduct(IN p_id INT,IN p_codigo VARCHAR(45),IN p_descripcion VARCHAR(100),
+IN p_cantidad INT,IN p_precio DECIMAL,IN p_fkprovider INT,IN p_fkcategory INT)
 begin
 	update tbl_producto
-    set pro_codigo = p_code,pro_descripcion = p_description,pro_cantidad = p_amount,
-    pro_precio = p_price,tbl_proveedor_prov_id = p_fkprovider,
+    set pro_codigo = p_codigo,pro_descripcion = p_descripcion, pro_cantidad = p_cantidad,
+    pro_precio = p_precio,tbl_proveedor_prov_id = p_fkprovider,
     tbl_categoria_cat_id = p_fkcategory
     where pro_id = p_id;
 end//
 DELIMITER ;
---mostrar todos los productos
+-- mostrar todos los productos
 DELIMITER //
 create procedure spSelectProducts()
 begin
@@ -43,22 +43,10 @@ begin
 	ON tbl_producto.tbl_proveedor_prov_id = tbl_proveedor.prov_id;
 end//
 DELIMITER ;
---eliminar producto
+-- eliminar producto
 DELIMITER //
 create procedure spDeleteProduct(IN p_id INT)
 begin
 	delete from tbl_producto where pro_id = p_id;
 end//
 DELIMITER ;
-
-
-
-
-
-
-
-
-
-
-
-
