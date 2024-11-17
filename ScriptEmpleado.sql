@@ -46,7 +46,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE spSelectEmployeesDDL()
 BEGIN
-	select emp_id, emp_nombre
+	select emp_id, emp_nombres
     from tbl_empleado;
 END//
 DELIMITER ;

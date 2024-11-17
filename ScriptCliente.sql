@@ -36,7 +36,7 @@ DELIMITER ;
 -- Eliminar un cliente
 DELIMITER //
 create procedure spDeleteClient(IN c_id INT)
-begin
+begin	
 	delete from tbl_cliente where cli_id = c_id;
 end//
 DELIMITER ;
@@ -46,7 +46,7 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE spSelectClientsDDL()
 BEGIN
-	select cli_id, cli_nombre
+	select cli_id, cli_nombres
     from tbl_cliente;
 END//
 DELIMITER ;
