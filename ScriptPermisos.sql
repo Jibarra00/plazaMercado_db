@@ -24,6 +24,15 @@ begin
 end//
 DELIMITER ;
 
+-- Selecciona unicamente el id y el nombre del permiso
+DELIMITER //
+CREATE PROCEDURE spSelectPermissionDDL()
+BEGIN
+	select per_id,per_nombre
+    from tbl_permiso;
+END//
+DELIMITER ;
+
 -- Eliminar permisos
 DELIMITER //
 create procedure spDeletePermission(IN p_id INT)
@@ -31,6 +40,8 @@ begin
 		delete from tbl_permiso where per_id = p_id;
 end//
 DELIMITER ; 
+
+
 
 
         
