@@ -46,7 +46,8 @@ DELIMITER ;
 DELIMITER //
 CREATE PROCEDURE spSelectUserMail(IN p_mail VARCHAR(80))
 BEGIN
-	select usu_correo, usu_contrasena,usu_salt,usu_estado,tbl_rol.rol_nombre,tbl_permiso.per_id
+	select usu_correo, usu_contrasena,usu_salt,usu_estado,tbl_rol.rol_id,tbl_rol.rol_nombre,
+    tbl_rol.rol_descripcion,tbl_permiso.per_id,tbl_permiso.per_nombre,tbl_permiso.per_descripcion
 	from tbl_usuario
     inner join tbl_rol
     on tbl_rol.rol_id = tbl_usuario.tbl_rol_rol_id 
