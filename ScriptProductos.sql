@@ -50,3 +50,24 @@ begin
 	delete from tbl_producto where pro_id = p_id;
 end//
 DELIMITER ;
+-- Muestra cuantos productos existen
+DELIMITER //
+CREATE PROCEDURE spSelectCountProducts(OUT total_productos INT)
+BEGIN
+	SELECT COUNT(pro_id) INTO total_productos
+    FROM tbl_producto;
+END//
+DELIMITER ;
+-- Muestra cuantos productos existen por categoria
+DELIMITER //
+CREATE PROCEDURE spSelectCountProductsCategories()
+BEGIN 
+	select 
+    c.cat_descripcion AS Categoria,
+    COUNT(p.pro_id) AS TotalProductos
+		FROM tbl_categoria c
+			LEFT JOIN tbl_producto p ON c.cat_id = p.tbl_categoria_cat_id
+			GROUP BY c.cat_descripcion
+			ORDER BY TotalProductos DESC;
+END//
+DELIMITER ;
