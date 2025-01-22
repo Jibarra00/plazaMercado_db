@@ -39,3 +39,27 @@ begin
 		delete from tbl_pedidos where ped_id = p_id;
 end//
 DELIMITER ;
+
+DELIMITER //
+
+CREATE PROCEDURE spCountProductsByDate()
+BEGIN
+    SELECT 
+        p.ped_fecha AS Fecha, 
+        pr.pro_descripcion AS NombreProducto, 
+        COUNT(*) AS Cantidad
+    FROM 
+        tbl_pedidos p
+    JOIN 
+        tbl_producto pr 
+    ON 
+        p.tbl_producto_pro_id = pr.pro_id
+    GROUP BY 
+        p.ped_fecha, pr.pro_descripcion
+    ORDER BY 
+        p.ped_fecha, NombreProducto;
+END //
+
+DELIMITER ;
+
+
