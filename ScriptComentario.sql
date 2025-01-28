@@ -17,7 +17,12 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE spSelectComment()
 BEGIN
-    SELECT com_id, com_text, com_fecha, com_clasificacion, tbl_cliente_cli_id, tbl_producto_pro_id FROM tbl_comentario;
+    SELECT com_id, com_text, com_fecha, com_clasificacion, tbl_cliente_cli_id,tbl_cliente.cli_nombres,tbl_producto_pro_id, tbl_producto.pro_descripcion
+    FROM tbl_comentario
+    INNER JOIN tbl_cliente
+    ON tbl_comentario.tbl_cliente_cli_id = tbl_cliente.cli_id
+    INNER JOIN tbl_producto
+    ON tbl_comentario.tbl_producto_pro_id = tbl_producto.pro_id;
 END$$
 DELIMITER ;
 
