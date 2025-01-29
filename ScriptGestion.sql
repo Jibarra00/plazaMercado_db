@@ -16,7 +16,12 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE spSelectManagement()
 BEGIN
-    SELECT ges_id, ges_fecha, ges_descripcion, tbl_empleado_emp_id, tbl_producto_pro_id FROM tbl_gestion;
+    SELECT ges_id, ges_fecha, ges_descripcion, tbl_empleado_emp_id,tbl_empleado.emp_nombres, tbl_producto_pro_id,tbl_producto.pro_descripcion 
+    FROM tbl_gestion
+    INNER JOIN tbl_empleado
+    ON tbl_gestion.tbl_empleado_emp_id = tbl_empleado.emp_id
+    INNER JOIN tbl_producto
+    ON tbl_gestion.tbl_producto_pro_id = tbl_producto.pro_id;
 END$$
 DELIMITER ;
 
